@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { APP_CONFIG } from "@/config/app-config";
 import { fontVars } from "@/lib/fonts/registry";
 import { PREFERENCE_DEFAULTS } from "@/lib/preferences/preferences-config";
+import { QueryProvider } from "@/lib/query-provider";
 import { ThemeBootScript } from "@/scripts/theme-boot";
 import { PreferencesStoreProvider } from "@/stores/preferences/preferences-provider";
 
@@ -43,7 +44,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
           navbarStyle={navbar_style}
           font={font}
         >
-          {children}
+          <QueryProvider>{children}</QueryProvider>
           <Toaster />
         </PreferencesStoreProvider>
       </body>

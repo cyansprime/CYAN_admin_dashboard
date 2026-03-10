@@ -8,14 +8,16 @@ import { DataTablePagination } from "@/components/data-table/data-table-paginati
 import { DataTableViewOptions } from "@/components/data-table/data-table-view-options";
 import { Button } from "@/components/ui/button";
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useBroadcasts } from "@/hooks/use-broadcasts";
 import { useDataTableInstance } from "@/hooks/use-data-table-instance";
 
-import { broadcastsData } from "./_components/broadcasts.config";
 import { broadcastsColumns } from "./_components/columns.broadcasts";
 
 export default function Page() {
+  const { data = [] } = useBroadcasts();
+
   const table = useDataTableInstance({
-    data: broadcastsData,
+    data,
     columns: broadcastsColumns,
     getRowId: (row) => row.id,
   });
