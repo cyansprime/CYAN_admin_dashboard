@@ -11,6 +11,7 @@ import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle }
 import { useBroadcasts } from "@/hooks/use-broadcasts";
 import { useDataTableInstance } from "@/hooks/use-data-table-instance";
 
+import { BroadcastHealthCard } from "./_components/broadcast-health-card";
 import { broadcastsColumns } from "./_components/columns.broadcasts";
 
 export default function Page() {
@@ -24,6 +25,7 @@ export default function Page() {
 
   return (
     <div className="flex flex-col gap-4 md:gap-6">
+      <BroadcastHealthCard />
       <Card>
         <CardHeader>
           <CardTitle>Broadcasts</CardTitle>
