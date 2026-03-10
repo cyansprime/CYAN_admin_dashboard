@@ -13,8 +13,13 @@ export interface SolarTerm {
 export interface DayEntry {
   date: string;
   weekday: string;
+  is_today: boolean;
+  anchor_id: string;
+  anchor: string;
+  anchor_role: string;
   solar_term: SolarTerm | null;
   proverb: { text: string; source: string };
+  broadcast_preview: string;
 }
 
 export function useUpcomingAlmanac(days = 14) {
@@ -24,6 +29,6 @@ export function useUpcomingAlmanac(days = 14) {
       const res = await apiClient.get("/almanac/upcoming", { params: { days } });
       return res.data as DayEntry[];
     },
-    staleTime: 60 * 60 * 1000, // 節氣每日不變，1 小時才重新 fetch
+    staleTime: 60 * 60 * 1000,
   });
 }
