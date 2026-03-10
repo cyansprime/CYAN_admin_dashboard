@@ -12,6 +12,7 @@ import { useDataTableInstance } from "@/hooks/use-data-table-instance";
 
 import { contentColumns } from "./_components/columns.content";
 import { contentData } from "./_components/content-hub.config";
+import { SolarTermsCard } from "./_components/solar-terms-card";
 
 export default function Page() {
   const table = useDataTableInstance({
@@ -22,6 +23,7 @@ export default function Page() {
 
   return (
     <div className="flex flex-col gap-4 md:gap-6">
+      <SolarTermsCard />
       <Card>
         <CardHeader>
           <CardTitle>Content Hub</CardTitle>
