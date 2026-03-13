@@ -1,35 +1,37 @@
+[中文版](README.zh-TW.md) | **English**
+
 # CYAN Seed Company — Admin Dashboard
 
-管理玉米育種、國際種子銷售、行銷內容與社群通路的一站式後台系統。
+An all-in-one back-office system for managing corn breeding, international seed sales, marketing content, and social media channels.
 
-基於 [Studio Admin](https://github.com/arhamkhnz/next-shadcn-admin-dashboard) 模板開發。
+Built on [Studio Admin](https://github.com/arhamkhnz/next-shadcn-admin-dashboard).
 
 ## Modules
 
 ### Dashboards
-- **CYAN Seeds** — 育種 + 銷售總覽（KPI、品種排行、市場分布、育種管線、庫存警示）
-- **Marketing** — 跨平台行銷總覽（互動趨勢、通路比較、內容類型分析、Top Posts）
+- **CYAN Seeds** — Breeding + sales overview (KPIs, variety rankings, market distribution, breeding pipeline, inventory alerts)
+- **Marketing** — Cross-platform marketing overview (engagement trends, channel comparison, content type analysis, top posts)
 
 ### Breeding & Sales
-- **Varieties** — 品種管理（品系代碼、性狀、世代、成熟期、產量潛力）
-- **Inventory** — 庫存管理（批號、倉庫、發芽率、純度、水分）
-- **Orders** — 訂單管理（客戶、品種、出口港、付款狀態）
-- **Customers** — 客戶 CRM（國際買家、分級、累計營收、區域）
+- **Varieties** — Variety management (line codes, traits, generations, maturity, yield potential)
+- **Inventory** — Inventory management (lot numbers, warehouses, germination rate, purity, moisture)
+- **Orders** — Order management (customers, varieties, export ports, payment status)
+- **Customers** — Customer CRM (international buyers, tiers, cumulative revenue, regions)
 
 ### Content & Marketing
-- **Content Hub** — 素材庫（影片/圖片/文案，跨通路發布）
-- **Campaigns** — 行銷活動（預算追蹤、觸及、轉換率）
-- **Broadcasts** — LINE 推播管理（排程、受眾、開封率、點擊率）
+- **Content Hub** — Asset library (video/image/copy, cross-channel publishing)
+- **Campaigns** — Marketing campaigns (budget tracking, reach, conversion rate)
+- **Broadcasts** — LINE broadcast management (scheduling, audience, open rate, click rate)
 
 ### Channels
-- **Overview** — 跨平台統一儀表板（LINE/FB/IG 粉絲成長趨勢）
-- **LINE** — 好友、開封率、點擊率、自動回覆
-- **Facebook** — 粉專觸及（Organic vs Paid）、廣告成本
-- **Instagram** — Reels/Posts/Stories 表現分析
+- **Overview** — Unified cross-platform dashboard (LINE/FB/IG follower growth trends)
+- **LINE** — Friends, open rate, click rate, auto-replies
+- **Facebook** — Page reach (organic vs paid), ad costs
+- **Instagram** — Reels/Posts/Stories performance analysis
 
 ### System
-- Authentication（Login/Register v1 & v2）
-- Roles, Settings, Scheduling, Tasks（planned）
+- Authentication (Login/Register v1 & v2)
+- Roles, Settings, Scheduling, Tasks (planned)
 
 ## Tech Stack
 
@@ -44,8 +46,8 @@
 ## Getting Started
 
 ```bash
-git clone https://github.com/cyansprime/next-shadcn-admin-dashboard.git
-cd next-shadcn-admin-dashboard
+git clone https://github.com/cyansprime/CYAN_admin_dashboard.git
+cd CYAN_admin_dashboard
 git checkout dev
 npm install
 npm run dev
@@ -53,10 +55,30 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) → redirects to `/dashboard/cyan`
 
+## Changelog
+
+### CYAN Custom Changes (`dev` branch)
+
+- **Broadcasts x Flask API** — Connect broadcasts page to CYAN Bot Flask API for real-time broadcast data and channel lists
+- **Broadcast Health Monitor** — New BroadcastHealthCard showing success rate, failure count, and other metrics
+- **Broadcast Approval Workflow** — New PendingApprovalCard for approving/rejecting pending broadcasts
+- **Solar Terms & Proverbs Card** — Content Hub now displays Taiwanese lunar solar terms and agricultural proverbs
+- **Proverbs x Broadcast Planning** — Connect proverb library to Content Hub as broadcast content source
+- **React Query Integration** — Added `@tanstack/react-query` provider and API client infrastructure
+
+### Upstream Updates (`arhamkhnz/next-shadcn-admin-dashboard`)
+
+- **shadcn/ui Upgrade** — Updated to radix-vega style, base color changed to mist
+- **Table Refactor** — Data tables moved from shared components to localized per-dashboard implementations
+- **Form Refactor** — Auth pages adopted field-based React Hook Form
+- **Sidebar Improvements** — Added support footer card, layout control alignment fixes
+- **Header** — Added GitHub shortcut link
+- **Dashboard Fixes** — Command palette, select grouping, owner name updates
+
 ## Git Strategy
 
-- `main` — 保持與上游同步
-- `dev` — 所有 CYAN 自訂開發
+- `main` — Stays in sync with upstream
+- `dev` — All CYAN custom development
 - `upstream` — [arhamkhnz/next-shadcn-admin-dashboard](https://github.com/arhamkhnz/next-shadcn-admin-dashboard)
 
 ```bash
