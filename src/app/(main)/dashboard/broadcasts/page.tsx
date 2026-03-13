@@ -6,16 +6,19 @@ import { Download, Plus } from "lucide-react";
 import { DataTable } from "@/components/data-table/data-table";
 import { DataTablePagination } from "@/components/data-table/data-table-pagination";
 import { DataTableViewOptions } from "@/components/data-table/data-table-view-options";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { useBroadcasts } from "@/hooks/use-broadcasts";
+import { useBroadcasts, usePendingBroadcasts } from "@/hooks/use-broadcasts";
 import { useDataTableInstance } from "@/hooks/use-data-table-instance";
 
 import { BroadcastHealthCard } from "./_components/broadcast-health-card";
 import { broadcastsColumns } from "./_components/columns.broadcasts";
+import { PendingApprovalCard } from "./_components/pending-approval-card";
 
 export default function Page() {
   const { data = [] } = useBroadcasts();
+  const { data: pendingBroadcasts = [] } = usePendingBroadcasts();
 
   const table = useDataTableInstance({
     data,
@@ -26,6 +29,25 @@ export default function Page() {
   return (
     <div className="flex flex-col gap-4 md:gap-6">
       <BroadcastHealthCard />
+
+      {/* Pending Approval Section */}
+      {pendingBroadcasts.length > 0 && (
+        <Card>
+          <CardHeader>
+            <div className="flex items-center gap-2">
+              <CardTitle>Pending Approval</CardTitle>
+              <Badge variant="secondary">{pendingBroadcasts.length}</Badge>
+            </div>
+            <CardDescription>Review and approve broadcasts before they are pushed to LINE.</CardDescription>
+          </CardHeader>
+          <CardContent className="flex flex-col gap-3">
+            {pendingBroadcasts.map((b) => (
+              <PendingApprovalCard key={b.id} broadcast={b} />
+            ))}
+          </CardContent>
+        </Card>
+      )}
+
       <Card>
         <CardHeader>
           <CardTitle>Broadcasts</CardTitle>

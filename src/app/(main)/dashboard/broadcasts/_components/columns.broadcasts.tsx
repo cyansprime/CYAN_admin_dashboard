@@ -14,6 +14,15 @@ const statusVariant: Record<string, "default" | "secondary" | "outline" | "destr
   Scheduled: "secondary",
   Draft: "outline",
   Failed: "destructive",
+  "Pending Approval": "secondary",
+  Rejected: "destructive",
+};
+
+const approvalVariant: Record<string, "default" | "secondary" | "outline" | "destructive"> = {
+  auto: "outline",
+  pending: "secondary",
+  approved: "default",
+  rejected: "destructive",
 };
 
 export const broadcastsColumns: ColumnDef<z.infer<typeof broadcastSchema>>[] = [
@@ -71,7 +80,7 @@ export const broadcastsColumns: ColumnDef<z.infer<typeof broadcastSchema>>[] = [
   {
     accessorKey: "scheduledAt",
     header: ({ column }) => <DataTableColumnHeader column={column} title="Scheduled" />,
-    cell: ({ row }) => <span className="text-muted-foreground tabular-nums text-sm">{row.original.scheduledAt}</span>,
+    cell: ({ row }) => <span className="text-muted-foreground text-sm tabular-nums">{row.original.scheduledAt}</span>,
     enableSorting: false,
   },
   {
@@ -84,6 +93,16 @@ export const broadcastsColumns: ColumnDef<z.infer<typeof broadcastSchema>>[] = [
     accessorKey: "clickRate",
     header: ({ column }) => <DataTableColumnHeader column={column} title="Click %" />,
     cell: ({ row }) => <span className="tabular-nums">{row.original.clickRate}</span>,
+    enableSorting: false,
+  },
+  {
+    accessorKey: "approvalStatus",
+    header: ({ column }) => <DataTableColumnHeader column={column} title="Approval" />,
+    cell: ({ row }) => {
+      const status = row.original.approvalStatus ?? "auto";
+      if (status === "auto") return null;
+      return <Badge variant={approvalVariant[status] ?? "secondary"}>{status}</Badge>;
+    },
     enableSorting: false,
   },
   {

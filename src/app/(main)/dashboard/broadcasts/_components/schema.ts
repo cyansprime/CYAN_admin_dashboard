@@ -11,4 +11,6 @@ export const broadcastSchema = z.object({
   scheduledAt: z.string(),
   openRate: z.string(),
   clickRate: z.string(),
+  audioPath: z.string().optional(),
+  approvalStatus: z.string().optional(),
 });
