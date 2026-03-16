@@ -69,11 +69,18 @@ export function SolarTermsCard() {
                 {/* 節氣說明 */}
                 {day.solar_term && <p className="text-xs text-muted-foreground leading-snug">{day.solar_term.desc}</p>}
 
-                {/* 諺語 */}
+                {/* 主播金句 */}
                 <blockquote className="text-xs text-foreground/75 border-l-2 border-primary/30 pl-2 leading-snug mt-auto">
-                  {day.proverb.text}
-                  <span className="block text-muted-foreground/60 mt-0.5">—— {day.proverb.source}</span>
+                  <span className="text-muted-foreground/60">🎙️</span> {day.proverb.personality.text}
+                  <span className="block text-muted-foreground/60 mt-0.5">—— {day.proverb.personality.source}</span>
                 </blockquote>
+                {/* 農業諺語（節氣當天不顯示） */}
+                {day.proverb.agricultural && (
+                  <blockquote className="text-xs text-foreground/75 border-l-2 border-amber-400/40 pl-2 leading-snug">
+                    <span className="text-muted-foreground/60">🌾</span> {day.proverb.agricultural.text}
+                    <span className="block text-muted-foreground/60 mt-0.5">—— {day.proverb.agricultural.source}</span>
+                  </blockquote>
+                )}
               </div>
             ))}
           </div>

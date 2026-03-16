@@ -1,14 +1,17 @@
 import {
   Banknote,
+  BookOpen,
   Calendar,
   ChartBar,
   ClipboardList,
   Facebook,
+  FileSearch,
   Fingerprint,
   Gauge,
   Globe,
   Instagram,
   LayoutDashboard,
+  Leaf,
   Lock,
   type LucideIcon,
   Megaphone,
@@ -18,6 +21,7 @@ import {
   ShoppingCart,
   Sprout,
   SquareArrowUpRight,
+  Tractor,
   Users,
   Video,
   Wheat,
@@ -122,6 +126,12 @@ export const sidebarItems: NavGroup[] = [
     label: "Content",
     items: [
       {
+        title: "Wisdom Cards",
+        url: "/dashboard/wisdom-cards",
+        icon: BookOpen,
+        isNew: true,
+      },
+      {
         title: "Content Hub",
         url: "/dashboard/content-hub",
         icon: Video,
@@ -137,6 +147,18 @@ export const sidebarItems: NavGroup[] = [
         title: "Broadcasts",
         url: "/dashboard/broadcasts",
         icon: Rss,
+        isNew: true,
+      },
+      {
+        title: "Broadcast Plan",
+        url: "/dashboard/broadcast-plan",
+        icon: Calendar,
+        isNew: true,
+      },
+      {
+        title: "Content Inventory",
+        url: "/dashboard/content-inventory",
+        icon: Package,
         isNew: true,
       },
     ],
@@ -173,6 +195,30 @@ export const sidebarItems: NavGroup[] = [
   },
   {
     id: 5,
+    label: "Agri Radar",
+    items: [
+      {
+        title: "Subsidies",
+        url: "/dashboard/agri-radar",
+        icon: Leaf,
+        isNew: true,
+      },
+      {
+        title: "Events Review",
+        url: "/dashboard/agri-radar/events",
+        icon: FileSearch,
+        isNew: true,
+      },
+      {
+        title: "Scrapers",
+        url: "/dashboard/agri-radar/scrapers",
+        icon: Tractor,
+        isNew: true,
+      },
+    ],
+  },
+  {
+    id: 6,
     label: "System",
     items: [
       {

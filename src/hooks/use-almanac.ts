@@ -18,7 +18,11 @@ export interface DayEntry {
   anchor: string;
   anchor_role: string;
   solar_term: SolarTerm | null;
-  proverb: { text: string; source: string };
+  proverb: {
+    personality: { text: string; source: string };
+    agricultural: { text: string; source: string };
+    solar_term?: { text: string; source: string } | null;
+  };
   broadcast_preview: string;
 }
 
